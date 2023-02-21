@@ -61,7 +61,23 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  // update a category by its `id` value
+    // Exactly like GET ONE route, just switch out "findONE" with "update"
+    Category.update(req.body, {
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(data => {
+            if (!data) {
+                res.status(404).json({ message: 'This category does not exist' });
+                return;
+            }
+            res.json(data);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.delete('/:id', (req, res) => {
