@@ -25,10 +25,34 @@ router.get('/', (req, res) => {
     });
 });
 
-// get one product
+// get one product (search by ID)
 router.get('/:id', (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+  let productid = req.params.id
+  Product.findOne({
+    where: { id: productid },
+    include: [
+      {
+          model: Category,
+          attributes: ['id', 'category']
+      },
+      {
+          model: Tag,
+          attributes: ['id', 'tag_name']
+      }
+  ]
+  })
+
+  .then(data => {
+    if(!data) {
+      res.status(404).json({message: 'This Product does not exist'})
+      return;
+    }
+    res.json(data);
+  })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 // create new product
