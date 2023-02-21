@@ -48,7 +48,16 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // create a new category
+    // does NOT need an ID because ID will automatically be applied
+    // all it needs is the category name
+    Category.create({
+        category_name: req.body.category_name
+    })
+        .then(dbCategoryData => res.json(dbCategoryData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.put('/:id', (req, res) => {
