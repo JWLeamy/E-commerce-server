@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { Category, Product } = require('../../models');
 
-// The `/api/categories` endpoint
 
+// Get ALL categories
 router.get('/', (req, res) => {
   Category.findAll({
     attributes: ['id', 'category_name'],
@@ -20,9 +20,31 @@ router.get('/', (req, res) => {
     });
 });
 
+//Get ONE category (search by ID)
 router.get('/:id', (req, res) => {
-  // find one category by its `id` value
-  // be sure to include its associated Products
+  Category.findOne({
+    where: {
+        id: req.params.id
+    },
+    attributes: ['id', 'category_name'],
+    include: [
+        {
+            model: Product,
+            attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
+        }
+    ]
+})
+    .then(data => {
+        if (!data) {
+            res.status(404).json({ message: 'This category does not exist' });
+            return;
+        }
+        res.json(data);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 router.post('/', (req, res) => {
