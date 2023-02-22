@@ -11,13 +11,14 @@
 Creating a database for e-commerce transactions that utilizes GET, POST, PUT, and DELETE requests efficiently and effectively.
 
 
-- GET:
+- GET (collect ALL data by category, product, or tag) :
+![13-orm-homework-demo-01](https://user-images.githubusercontent.com/111401066/220498526-18510b56-60c5-4049-aa05-6098c02e6294.gif)
 
-- POST:
+- GET (collect INDIVIDUAL data by catergory, product, or tag) :
+![13-orm-homework-demo-02](https://user-images.githubusercontent.com/111401066/220499094-12711abc-95de-4d42-a1ba-65eaa04ff0af.gif)
 
-- PUT:
-
-- DELETE:
+- POST/PUT/DELETE:
+![13-orm-homework-demo-03](https://user-images.githubusercontent.com/111401066/220499239-15b75846-e8e0-4cdf-80ae-716645be8829.gif)
 
 
 ## Acceptance Critera
