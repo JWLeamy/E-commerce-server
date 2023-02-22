@@ -9,8 +9,9 @@
 
 ## Description
 Creating a database for e-commerce transactions that utilizes GET, POST, PUT, and DELETE requests efficiently and effectively.
-
-
+<br>
+<br>
+The following examples show the functionality of each request. <br>
 - GET (collect ALL data by category, product, or tag) :
 ![13-orm-homework-demo-01](https://user-images.githubusercontent.com/111401066/220498526-18510b56-60c5-4049-aa05-6098c02e6294.gif)
 
@@ -45,3 +46,11 @@ THEN I am able to successfully create, update, and delete data in my database
 ```
 
 ## Walkthrough
+1. Ensure you have a .ENV file located within your reporsitory that contains the DB name, DB user, and DB password
+```
+DB_NAME='ecommerce_db'
+DB_USER='{your username}'
+DB_PW='{your password}'
+``` 
+2. Create Schema and Seed your Data using mysql
+3. 
