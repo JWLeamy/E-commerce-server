@@ -77,7 +77,23 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  // delete on tag by its `id` value
+  // Exactly like 'GET ONE' and 'PUT' routes, just switch out "findONE/udpate" with "destroy"
+  Tag.destroy(req.body, {
+    where: {
+        id: req.params.id
+    }
+})
+    .then(data => {
+        if (!data) {
+            res.status(404).json({ message: 'This Tag does not exist' });
+            return;
+        }
+        res.json(data);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 module.exports = router;

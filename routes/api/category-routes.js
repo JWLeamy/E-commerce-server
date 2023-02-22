@@ -81,7 +81,23 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  // delete a category by its `id` value
+  // Exactly like 'GET ONE/Update' routes, just switch out "findONE/update" with "destroy"
+  Category.destroy(req.body, {
+    where: {
+        id: req.params.id
+    }
+})
+    .then(data => {
+        if (!data) {
+            res.status(404).json({ message: 'This category does not exist' });
+            return;
+        }
+        res.json(data);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 module.exports = router;
