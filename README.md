@@ -53,4 +53,5 @@ DB_USER='{your username}'
 DB_PW='{your password}'
 ``` 
 2. Create Schema and Seed your Data using mysql
-3. 
+3. Start the Server and start modifying your databse
+4. [Untitled_ Feb 22, 2023 5_17 PM.webm](https://user-images.githubusercontent.com/111401066/220800902-73a7cde9-5c25-4abe-8ab7-ee46cc9c7268.webm)
