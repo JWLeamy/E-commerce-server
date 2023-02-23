@@ -79,7 +79,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // Exactly like 'GET ONE' and 'PUT' routes, just switch out "findONE/udpate" with "destroy"
-  Tag.destroy(req.body, {
+  Tag.destroy( {
     where: {
         id: req.params.id
     }

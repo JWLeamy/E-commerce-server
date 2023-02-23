@@ -82,7 +82,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // Exactly like 'GET ONE/Update' routes, just switch out "findONE/update" with "destroy"
-  Category.destroy(req.body, {
+  Category.destroy( {
     where: {
         id: req.params.id
     }
