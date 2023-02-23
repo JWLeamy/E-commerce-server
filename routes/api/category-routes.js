@@ -93,7 +93,7 @@ router.delete('/:id', (req, res) => {
             return;
         }
         res.json(data);
-        console.log('your changes have been made!')
+        alert('your changes have been made!')
     })
     .catch(err => {
         console.log(err);
